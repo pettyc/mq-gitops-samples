@@ -14,11 +14,11 @@ public class Consumer {
 
                 try {
 
-                        MQConnectionFactory cf = new MQConnectionFactory();
+                        MQConnectionFactory cf = new MQConnectionFactory("app","letmein");
 
-                        cf.setHostName("qm02-qm-ibm-mq");
+                        cf.setHostName("qm04-qm-ibm-mq");
                         cf.setPort(1414);
-                        cf.setQueueManager("DMQ02");
+                        cf.setQueueManager("DMQ42");
                         cf.setChannel("DEV.APP.SVRCONN.0TLS");
                         cf.setTransportType(WMQConstants.WMQ_CM_CLIENT);
                         cf.setAppName("MY-CONSUMER");
