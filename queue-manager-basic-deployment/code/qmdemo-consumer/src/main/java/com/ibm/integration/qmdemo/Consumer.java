@@ -16,9 +16,9 @@ public class Consumer {
 
                         MQConnectionFactory cf = new MQConnectionFactory();
 
-                        cf.setHostName("qm04-qm-ibm-mq");
+                        cf.setHostName("qm05-qm-ibm-mq");
                         cf.setPort(1414);
-                        cf.setQueueManager("DMQ04");
+                        cf.setQueueManager("DMQ05");
                         cf.setChannel("DEV.APP.SVRCONN.0TLS");
                         cf.setTransportType(WMQConstants.WMQ_CM_CLIENT);
                         cf.setAppName("MY-CONSUMER");
