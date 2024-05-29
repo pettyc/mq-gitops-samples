@@ -19,7 +19,7 @@ public class Consumer {
                         cf.setHostName("qm05-qm-ibm-mq");
                         cf.setPort(1414);
                         cf.setQueueManager("DMQ05");
-                        cf.setChannel("SYSTEM.APP.SVRCONN");
+                        cf.setChannel("DEV.APP.SVRCONN.0TLS");
                         cf.setTransportType(WMQConstants.WMQ_CM_CLIENT);
                         cf.setAppName("MY-CONSUMER");
                         cf.setClientReconnectOptions(WMQConstants.WMQ_CLIENT_RECONNECT);
