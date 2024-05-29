@@ -14,7 +14,7 @@ public class Consumer {
 
                 try {
 
-                        MQConnectionFactory cf = new MQConnectionFactory("app","letmein");
+                        MQConnectionFactory cf = new MQConnectionFactory();
 
                         cf.setHostName("qm04-qm-ibm-mq");
                         cf.setPort(1414);
@@ -29,7 +29,7 @@ public class Consumer {
                         System.out.println(cf.toString());
 
                         System.out.println("Starting Consumer - creating connection...");
-                        con = cf.createConnection();
+                        con = cf.createConnection("app","letmein");
                         System.out.println("Creating session...");
                         Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
                         Destination getFrom = session.createQueue("DEV.QUEUE.1");
