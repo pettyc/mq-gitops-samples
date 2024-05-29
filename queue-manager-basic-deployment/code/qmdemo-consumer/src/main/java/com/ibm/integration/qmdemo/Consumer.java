@@ -16,7 +16,7 @@ public class Consumer {
 
                         MQConnectionFactory cf = new MQConnectionFactory();
 
-                        cf.setHostName("qm01-qm-ibm-mq");
+                        cf.setHostName("qm02-qm-ibm-mq");
                         cf.setPort(1414);
                         cf.setQueueManager("DMQ02");
                         cf.setChannel("DEV.APP.SVRCONN.0TLS");
