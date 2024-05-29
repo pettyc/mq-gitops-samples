@@ -29,7 +29,7 @@ public class Consumer {
                         System.out.println(cf.toString());
 
                         System.out.println("Starting Consumer - creating connection...");
-                        con = cf.createConnection("app","letmein");
+                        con = cf.createConnection("app","bmV3cGFzc3dvcmQ=");
                         System.out.println("Creating session...");
                         Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
                         Destination getFrom = session.createQueue("DEV.QUEUE.1");
