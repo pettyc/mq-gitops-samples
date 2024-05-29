@@ -18,7 +18,7 @@ public class Consumer {
 
                         cf.setHostName("qm04-qm-ibm-mq");
                         cf.setPort(1414);
-                        cf.setQueueManager("DMQ42");
+                        cf.setQueueManager("DMQ04");
                         cf.setChannel("DEV.APP.SVRCONN.0TLS");
                         cf.setTransportType(WMQConstants.WMQ_CM_CLIENT);
                         cf.setAppName("MY-CONSUMER");
