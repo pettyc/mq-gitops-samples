@@ -34,7 +34,7 @@ public class Consumer {
                         Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
                         Destination getFrom = session.createQueue("DEV.QUEUE.1");
                         MessageConsumer consumer = session.createConsumer(getFrom);
-                        consumer.setPriority(1);
+                        consumer.setPriority(9);
                         
                         int messageCount=1;
                         con.start();
