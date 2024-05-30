@@ -30,7 +30,7 @@ public class Producer {
 			System.out.println(cf.toString());
 
 			System.out.println("Starting Producer - creating connection...");
-			con = cf.createConnection("app","newpassword");
+			con = cf.createConnection();
 			System.out.println("Creating session...");
 			Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
 			Destination sendTo = session.createQueue("DEV.QUEUE.1");
