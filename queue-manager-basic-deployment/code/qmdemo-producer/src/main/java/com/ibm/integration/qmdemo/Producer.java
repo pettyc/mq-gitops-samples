@@ -38,7 +38,7 @@ public class Producer {
 			producer.setPriority(9);
 
 
-			Message msg = session.createTextMessage("Test some data here"); 
+			Message msg = session.createTextMessage("High priority data here"); 
 
 			System.out.println("Sending...");
 
