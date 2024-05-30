@@ -17,9 +17,9 @@ public class Producer {
 
 			MQConnectionFactory cf = new MQConnectionFactory();
 
-			cf.setHostName("qmdemo-ibm-mq");
+			cf.setHostName("qm01-qm-ibm-mq");
 			cf.setPort(1414);
-			cf.setQueueManager("QMDEMO");
+			cf.setQueueManager("DMQ01");
 			cf.setChannel("DEV.APP.SVRCONN.0TLS");
 			cf.setTransportType(WMQConstants.WMQ_CM_CLIENT);
 			cf.setAppName("MY-PRODUCER");
