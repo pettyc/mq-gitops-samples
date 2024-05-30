@@ -41,7 +41,7 @@ public class Consumer {
                         while (true) {
 
         					Message message = consumer.receive();
-        					System.out.println("Received message, count: " + messageCount + "Priority: " + message.getJMSPriority() );
+        					System.out.println("Received message, count: " + messageCount + " Priority: " + message.getJMSPriority() );
         					messageCount++;
                                                 Thread.sleep(500);
         				}
