@@ -35,7 +35,8 @@ public class Producer {
 			Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
 			Destination sendTo = session.createQueue("DEV.QUEUE.1");
 			MessageProducer producer = session.createProducer(sendTo);
-			producer.setPriority(1);
+			//producer.setPriority(1);
+
 
 			Message msg = session.createTextMessage("Test some data here"); 
 
