@@ -34,7 +34,6 @@ public class Consumer {
                         Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
                         Destination getFrom = session.createQueue("DEV.QUEUE.1");
                         MessageConsumer consumer = session.createConsumer(getFrom);
-                        consumer.setPriority(9);
                         
                         int messageCount=1;
                         con.start();
@@ -42,7 +41,7 @@ public class Consumer {
                         while (true) {
 
         					Message message = consumer.receive();
-        					System.out.println("Received message, count: " + messageCount);
+        					System.out.println("Received message, count: " + messageCount + "Priority: " + message.getJMSPriority() );
         					messageCount++;
                                                 Thread.sleep(500);
         				}
