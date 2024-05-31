@@ -33,7 +33,7 @@ public class Producer {
 			con = cf.createConnection();
 			System.out.println("Creating session...");
 			Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
-			Destination sendTo = session.createQueue("DEV.QUEUE.1");
+			Destination sendTo = session.createQueue("DEV.QUEUE.2");
 			MessageProducer producer = session.createProducer(sendTo);
 			//producer.setPriority(9);
 
@@ -44,7 +44,7 @@ public class Producer {
 
 				for (int i = 0; i < 1000; i++) {
 					producer.send(msg);
-					Thread.sleep(3000);
+					//Thread.sleep(3000);
 				}
 
 			con.close();
