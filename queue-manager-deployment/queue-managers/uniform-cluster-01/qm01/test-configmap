@@ -1,0 +1,57 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: test-configmap
+  namespace: mq-demo
+  uid: 667aa153-0652-4a28-a059-cd951e70219f
+  resourceVersion: '24634753'
+  creationTimestamp: '2024-05-24T14:45:12Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2024-06-07T11:44:58Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:DCCDemo1.ini': {}
+          'f:DCCDemo1.mqsc': {}
+          'f:DCCDemo2.ini': {}
+        'f:immutable': {}
+immutable: false
+data:
+  DCCDemo1.ini: |
+    Channels:
+       MQIBindType=FASTPATH
+       MaxChannels=2000
+       MaxActiveChannels=1000
+  DCCDemo1.mqsc: >
+    define channel('+AUTOCL+_+QMNAME+') chltype(clusrcvr) trptype(tcp)
+    conname(+CONNAME+) cluster('+AUTOCL+') replace
+
+    DEFINE QLOCAL('DEV.QUEUE.1') REPLACE
+
+    DEFINE QLOCAL('DEV.QUEUE.2') REPLACE
+
+    DEFINE QLOCAL('DEV.DEAD.LETTER.QUEUE') REPLACE
+
+    DEFINE CHANNEL('DEV.APP.SVRCONN.0TLS') CHLTYPE(SVRCONN) TRPTYPE(TCP)
+    MCAUSER('app') SSLCIPH('') SSLCAUTH(OPTIONAL) REPLACE
+
+    SET CHLAUTH('DEV.APP.SVRCONN.0TLS') TYPE(ADDRESSMAP) ADDRESS('*')
+    USERSRC(CHANNEL) CHCKCLNT(ASQMGR) DESCR('Allows connection via APP channel')
+    ACTION(REPLACE)
+
+    ALTER AUTHINFO(SYSTEM.DEFAULT.AUTHINFO.IDPWOS) AUTHTYPE(IDPWOS)
+    CHCKCLNT(OPTIONAL)
+
+    ALTER QMGR CHLAUTH(DISABLED)
+  DCCDemo2.ini: |
+    AutoCluster:
+       Repository1Conname=qm01-qm-ibm-mq(1414)
+       Repository1Name=DMQ01
+       Repository2Conname=qm02-qm-ibm-mq(1414)
+       Repository2Name=DMQ02
+       ClusterName=UNICLUS
+       Type=Uniform
